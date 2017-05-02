@@ -1,5 +1,5 @@
 {
-  "name": "action-cable-react",
+  "name": "react-action-cable-fixed",
   "description": "Use Rails 5 ActionCable channels with React for realtime magic.",
   "main": "dist/action_cable_react.js",
   "authors": [
@@ -11,7 +11,7 @@
     "actioncable",
     "react"
   ],
-  "homepage": "https://github.com/schneidmaster/action-cable-react",
+  "homepage": "https://github.com/schneidmaster/react-action-cable-fixed",
   "moduleType": [],
   "ignore": [
     "**/.*",

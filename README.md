@@ -1,5 +1,5 @@
-[![npm version](https://badge.fury.io/js/action-cable-react.svg)](https://badge.fury.io/js/action-cable-react)
-[![Bower version](https://badge.fury.io/bo/action-cable-react.svg)](https://badge.fury.io/bo/action-cable-react)
+[![npm version](https://badge.fury.io/js/react-action-cable-fixed.svg)](https://badge.fury.io/js/react-action-cable-fixed)
+[![Bower version](https://badge.fury.io/bo/react-action-cable-fixed.svg)](https://badge.fury.io/bo/react-action-cable-fixed)
 
 # Status
 
@@ -11,13 +11,13 @@ Use Rails 5 ActionCable channels with React for realtime magic.
 
 ## Overview
 
-action-cable-react is a npm/bower package to bind one or more [ActionCable](https://github.com/rails/rails/tree/master/actioncable) channels to React components. This allows you to define how each individual component should respond to new messages from each channel, bringing ActionCable nicely in line with the React data model and permitting usage with a Rails API and standalone frontend React application.
+react-action-cable-fixed is a npm/bower package to bind one or more [ActionCable](https://github.com/rails/rails/tree/master/actioncable) channels to React components. This allows you to define how each individual component should respond to new messages from each channel, bringing ActionCable nicely in line with the React data model and permitting usage with a Rails API and standalone frontend React application.
 
-Make sure to check out the example [server](https://github.com/schneidmaster/action-cable-react-example-server) and client ([ES6](https://github.com/schneidmaster/action-cable-react-example-client) or [CoffeeScript](https://github.com/schneidmaster/action-cable-react-example-coffee)) applications to try it out for yourself.
+Make sure to check out the example [server](https://github.com/schneidmaster/react-action-cable-fixed-example-server) and client ([ES6](https://github.com/schneidmaster/react-action-cable-fixed-example-client) or [CoffeeScript](https://github.com/schneidmaster/react-action-cable-fixed-example-coffee)) applications to try it out for yourself.
 
 ## Usage
 
-The action-cable-react package exposes four modules: ActionCable, Cable, CableMixin, and ChannelMixin. With npm or webpack-type setups, you can `require` or `import` them as usual; for bower, they are set as window globals under ActionCableReact (e.g. `window.ActionCableReact.ActionCable`).
+The react-action-cable-fixed package exposes four modules: ActionCable, Cable, CableMixin, and ChannelMixin. With npm or webpack-type setups, you can `require` or `import` them as usual; for bower, they are set as window globals under ActionCableReact (e.g. `window.ActionCableReact.ActionCable`).
 
 First, you need to define your ActionCable channels in your application setup (like `app.js`). Create your consumer:
 
@@ -33,7 +33,7 @@ var cable = new Cable({
 });
 ```
 
-action-cable-react breaks slightly with the documented Rails method for creating a new channel here. It accepts either a channel name or a params object as the first argument, but as the second argument, it accepts an array of message types rather than an object of message handler definitions. These message types are automatically mapped to corresponding methods on React components -- for example, as we will see in a moment, a React component with the ChatChannel mixed in will automatically have the `handleNewMessage` method triggered when a new message of type `newMessage` is received.
+react-action-cable-fixed breaks slightly with the documented Rails method for creating a new channel here. It accepts either a channel name or a params object as the first argument, but as the second argument, it accepts an array of message types rather than an object of message handler definitions. These message types are automatically mapped to corresponding methods on React components -- for example, as we will see in a moment, a React component with the ChatChannel mixed in will automatically have the `handleNewMessage` method triggered when a new message of type `newMessage` is received.
 
 Finally, when rendering your root React component, pass along the cable object in the props, e.g.:
 
@@ -44,7 +44,7 @@ ReactDOM.render(<MyRootComponent cable={cable} />, document.getElementById('app'
 That covers the ActionCable and Cable modules -- now for the CableMixin and ChannelMixin. The CableMixin must be included in any React component that needs to be bound to one or more ActionCable channels. It needs the React module as an argument, e.g.:
 
 ```javascript
-import { CableMixin } from 'action-cable-react';
+import { CableMixin } from 'react-action-cable-fixed';
 import React from 'react';
 
 module.exports = React.createClass({
@@ -56,7 +56,7 @@ module.exports = React.createClass({
 The ChannelMixin is used to bind one or more channels to a given component. It accepts an array of channel names as an argument, e.g.:
 
 ```javascript
-import { CableMixin, ChannelMixin } from 'action-cable-react';
+import { CableMixin, ChannelMixin } from 'react-action-cable-fixed';
 import React from 'react';
 
 module.exports = React.createClass({
@@ -77,7 +77,7 @@ Additionally, if you defined any message types when initializing the channel, yo
 Let's look at it all together in a simple chatroom component:
 
 ```javascript
-import { CableMixin, ChannelMixin } from 'action-cable-react';
+import { CableMixin, ChannelMixin } from 'react-action-cable-fixed';
 import React from 'react';
 
 module.exports = React.createClass({
@@ -125,11 +125,11 @@ module.exports = React.createClass({
 });
 ```
 
-The full example is available on [GitHub](https://github.com/schneidmaster/action-cable-react-example-client) as well as a companion [server](https://github.com/schneidmaster/action-cable-react-example-server) application. (Or, check it out in [CoffeeScript](https://github.com/schneidmaster/action-cable-react-example-coffee).)
+The full example is available on [GitHub](https://github.com/schneidmaster/react-action-cable-fixed-example-client) as well as a companion [server](https://github.com/schneidmaster/react-action-cable-fixed-example-server) application. (Or, check it out in [CoffeeScript](https://github.com/schneidmaster/react-action-cable-fixed-example-coffee).)
 
 ## Contributing
 
-1. Fork it ( https://schneidmaster/action-cable-react/fork )
+1. Fork it ( https://schneidmaster/react-action-cable-fixed/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
